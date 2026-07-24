@@ -48,14 +48,19 @@
 ## 4. Key Concepts & Background
 
 ### eBPF Fundamentals
-[Explain the key eBPF concepts relevant to your project:
-- What is eBPF and how does it work?
-- In-kernel virtual machine, JIT compilation, safety guarantees
-- Use cases (networking, observability, security)
-- Any domain-specific knowledge needed]
+- **What it is**: an in-kernel virtual machine that runs sandboxed bytecode inside the Linux kernel without changing kernel source or loading a kernel module. Programs are checked by a static **verifier** (range analysis, pointer tracking, loop bounds) and then **JIT-compiled** to native code for near-native performance.
+- **Safety model in flux**: the traditional safety story rests almost entirely on the verifier. Recent work (2.1, *Kernel Extension Verification is Untenable*) argues this is increasingly unsustainable as the verifier's surface grows, motivating two responses: **hardware-assisted isolation** (Intel MPK, ARM PAC/MTE, software fault isolation) and **language-based safety** (Rex — compiler-enforced guarantees instead of/alongside verification).
+- **Trust doesn't stop at the verifier**: the bytecode reaching the kernel has to be the bytecode you intended to load. This is the **supply-chain** problem — signing, attestation, and gating (BPF token/FS delegation, the signed-BPF work landing in kernel 6.18, CO-RE relocation invalidating signatures) — currently being fought out on kernel mailing lists more than in academia.
+- **Use cases**: networking/packet processing (XDP, tc), observability and tracing (kprobes, tracepoints, perf/ring buffers), and security monitoring (Falco, Tetragon, Tracee — provenance-style runtime intrusion detection).
+- **Deployed eBPF is itself an attack surface**: once used defensively, eBPF-based monitors face documented evasion techniques — TOCTOU/semantic confusion, hook/policy bypass, and telemetry-path blinding — with at least one real-world incident (the LinkPro eBPF rootkit).
+- Full source-level detail on all of the above lives in [[eBPF Research - Index]]; see especially [[1 - Formal Verification of the Verifier and JIT]] (verifier/JIT trust), [[2 - Hardware-Assisted Isolation for eBPF]] (isolation responses), [[3 - Secure eBPF Program Supply Chain]] (signing/attestation), and [[4 - Adversarial Robustness of eBPF-Based Monitoring]] (evasion of deployed monitors).
 
 ### Related Technologies
-[List technologies or frameworks you'll be using or integrating with]
+- **Toolchain**: libbpf (user-space loading/skeletons), BCC (BPF Compiler Collection), bpftool, LLVM/Clang (BPF backend), CO-RE
+- **Hooks & attach points**: XDP, tc, kprobes/kretprobes, tracepoints, LSM hooks, perf/ring buffers
+- **Deployed security tooling**: Falco, Tetragon, Tracee
+- **Hardware isolation primitives**: Intel MPK, ARM PAC, ARM MTE, software fault isolation (SFI)
+- **Kernel trust mechanisms**: BPF token, BPF FS-based delegation, Linux Security Modules (LSM), Hornet LSM (in-flight)
 
 ---
 
@@ -101,12 +106,24 @@
 
 ### Recommended Reading
 - [[eBPF Research - Index]] — full research hub: formal verification, hardware isolation, program supply chain, and adversarial robustness of eBPF monitoring, with ~44 sources and candidate project angles in [[Potential Research Topics]]
+  - [[1 - Formal Verification of the Verifier and JIT]] — can the verifier/JIT be proven correct? (Agni, tnum, Jitterbug, Serval)
+  - [[2 - Hardware-Assisted Isolation for eBPF]] — hardware-backed defense-in-depth (MPK, PAC, MTE, SFI) and the language-based alternative (Rex)
+  - [[3 - Secure eBPF Program Supply Chain]] — signing, attestation, and gating bytecode before it reaches the kernel
+  - [[4 - Adversarial Robustness of eBPF-Based Monitoring]] — how robust is eBPF-based monitoring (Falco, Tetragon, Tracee) against an adversary who knows it's there?
+  - [[Author Pages to Watch]] — researcher pages worth bookmarking for new work not yet indexed
 
 ### Tools & Libraries
-- [List relevant eBPF tools and libraries]
+- **libbpf** — user-space library for loading/managing BPF programs (skeletons, CO-RE)
+- **BCC** (BPF Compiler Collection) — Python/Lua front-end for writing BPF tools
+- **bpftool** — kernel-shipped introspection/debugging CLI for BPF objects
+- **LLVM/Clang** — compiles restricted-C to BPF bytecode
+- **Falco / Tetragon / Tracee** — eBPF-based runtime security monitoring and enforcement (relevant if the project angle touches Section 4)
 
 ### Learning Resources
-- [Tutorials, courses, or community forums]
+- [ebpf.io](https://ebpf.io) — eBPF Foundation's community hub and docs
+- *The eBPF Runtime in the Linux Kernel* (survey, arXiv 2410.00026 — see 1.12 in [[1 - Formal Verification of the Verifier and JIT]]) — good technical primer/orientation before diving into any subtopic
+- LWN.net's BPF coverage — historical and in-flight kernel engineering context (signed BPF, BPF token, unprivileged `bpf()` policy history — see [[3 - Secure eBPF Program Supply Chain]])
+- Linux Plumbers Conference eBPF track — primary-source talks on in-flight kernel work
 
 ---
 
@@ -121,8 +138,8 @@
 
 ## 10. Notes & Progress
 
-[This section will be updated as the project progresses. Use it to track decisions, insights, and next steps.]
+- **2026-07-24**: Research phase compiled — [[eBPF Research - Index]] now holds ~44 sources across four thematic areas (verifier/JIT formal verification, hardware-assisted isolation, program supply chain, adversarial robustness of eBPF monitoring), with ten candidate project angles synthesized in [[Potential Research Topics]]. §4 and §8 above have been filled in from this research. **Next step**: choose a direction from [[Potential Research Topics]] (or propose a new one) so §§1–3, 5–7, 9 can be written against it.
 
 ---
 
-**Last Updated**: [Date]
+**Last Updated**: 2026-07-24
