@@ -105,6 +105,7 @@
 ## 8. References & Resources
 
 ### Recommended Reading
+- [[eBPF Fundamentals]] — baseline primer: what eBPF is, the load→verify→JIT→attach lifecycle, the VM and instruction set, the verifier, maps, helpers/kfuncs, CO-RE, hooks, limitations, toolchain, and a glossary. Start here if any term below is unfamiliar.
 - [[eBPF Research - Index]] — full research hub: formal verification, hardware isolation, program supply chain, and adversarial robustness of eBPF monitoring, with ~44 sources and candidate project angles in [[Potential Research Topics]]
   - [[1 - Formal Verification of the Verifier and JIT]] — can the verifier/JIT be proven correct? (Agni, tnum, Jitterbug, Serval)
   - [[2 - Hardware-Assisted Isolation for eBPF]] — hardware-backed defense-in-depth (MPK, PAC, MTE, SFI) and the language-based alternative (Rex)
@@ -139,7 +140,8 @@
 ## 10. Notes & Progress
 
 - **2026-07-24**: Research phase compiled — [[eBPF Research - Index]] now holds ~44 sources across four thematic areas (verifier/JIT formal verification, hardware-assisted isolation, program supply chain, adversarial robustness of eBPF monitoring), with ten candidate project angles synthesized in [[Potential Research Topics]]. §4 and §8 above have been filled in from this research. **Next step**: choose a direction from [[Potential Research Topics]] (or propose a new one) so §§1–3, 5–7, 9 can be written against it.
+- **2026-07-25**: Added [[eBPF Fundamentals]] — a standalone, deliberately *descriptive* baseline primer on the technology itself (lifecycle, VM/ISA, verifier, maps, helpers/kfuncs, CO-RE, hook taxonomy, privileges, limitations, toolchain, glossary), linked from §8 above. It covers the mechanism; the research notes evaluate it. §4 of this note remains the project's own condensed framing and was left as-is.
 
 ---
 
-**Last Updated**: 2026-07-24
+**Last Updated**: 2026-07-25
