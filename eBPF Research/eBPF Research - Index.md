@@ -7,6 +7,7 @@ related: "[[eBPF (Extended Berkeley Packet Filter)]]"
 Hub note for the research gathered around the [[eBPF (Extended Berkeley Packet Filter)]] capstone project. It organizes ~44 sources across four thematic areas of eBPF safety research — what happens *before* a program is trusted (verification, isolation, supply chain) and what happens *after* it's deployed defensively (adversarial robustness of eBPF-based monitoring) — plus a synthesis of candidate project angles the sources themselves don't cover yet.
 
 ## How this folder is organized
+- [[0 - Seminal Papers - Foundational Reading]] is the citation *base* — the ancestry the topic notes cite rather than the current literature they cover. Start there if you want the intellectual lineage before the breadth.
 - Each numbered topic note below reorganizes the source list for that theme (retrieval order, not citation order), preserving quality tags and every URL variant that was found (open PDF, landing page, mirror, code, talk).
 - [[Potential Research Topics]] translates gaps, tensions, and unaddressed intersections between sections into ten candidate capstone angles.
 - [[Author Pages to Watch]] lists researcher pages worth bookmarking for new work before it's indexed by search engines.
@@ -19,6 +20,9 @@ Hub note for the research gathered around the [[eBPF (Extended Berkeley Packet F
 - ⚠️ flags — sourcing caveats called out explicitly in the original research pass (unconfirmed titles, secondhand citations, weak evaluations, scope exclusions)
 
 ## Topics
+
+### [[0 - Seminal Papers - Foundational Reading]]
+The foundational base: cBPF's origin (McCanne & Jacobson 1993) and the 1993–96 safe-kernel-extension line (SFI, Proof-Carrying Code, SPIN, VINO) that defines the competing safety philosophies still being argued over in Section 2 — plus PREVAIL and KFlex, two significant sources the four topic notes missed. 13 entries, all links verified live.
 
 ### [[1 - Formal Verification of the Verifier and JIT]]
 Can the verifier and JIT be proven correct? Agni, tnum, Jitterbug, Serval, plus two independent reviews of how far formal coverage reaches. 12 sources.
@@ -39,6 +43,8 @@ If you want the thesis before the breadth, read in this order (~90 pages total):
 2. **2.1** — the argument (verification is untenable)
 3. **1.1** — Agni, the state of the art in verification
 4. **2.2** or **2.3** — the hardware-isolation response
+
+For the foundations underneath that spine — why the argument at 2.1 is a thirty-year-old one — see the fuller reading order in [[0 - Seminal Papers - Foundational Reading#Suggested reading order]].
 
 ## Cross-cutting gaps worth noting
 - No source connects Section 2 (hardware isolation) to Section 4 (monitor evasion) — does MPK/PAC/MTE-based isolation actually prevent the telemetry-blinding attacks documented in 4.3/4.4? See [[Potential Research Topics#9. Does hardware isolation prevent telemetry-blinding attacks?]].
