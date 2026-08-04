@@ -106,6 +106,7 @@
 
 ### Recommended Reading
 - [[eBPF Fundamentals]] — baseline primer: what eBPF is, the load→verify→JIT→attach lifecycle, the VM and instruction set, the verifier, maps, helpers/kfuncs, CO-RE, hooks, limitations, toolchain, and a glossary. Start here if any term below is unfamiliar.
+- [[Running and Testing eBPF - Practical Approaches]] — the *practical* counterpart to the research: how to get a Linux kernel running on this machine, five approach options (bpftrace/BCC, libbpf+CO-RE, Rust-Aya/Go, userspace bpftime, cloud/bare metal) with the languages each requires, a benchmarking-and-testing methodology, and a feasibility map of which [[Potential Research Topics]] angles this hardware can and cannot support.
 - [[eBPF Research - Index]] — full research hub: formal verification, hardware isolation, program supply chain, and adversarial robustness of eBPF monitoring, with ~44 sources and candidate project angles in [[Potential Research Topics]]
   - [[1 - Formal Verification of the Verifier and JIT]] — can the verifier/JIT be proven correct? (Agni, tnum, Jitterbug, Serval)
   - [[2 - Hardware-Assisted Isolation for eBPF]] — hardware-backed defense-in-depth (MPK, PAC, MTE, SFI) and the language-based alternative (Rex)
@@ -141,7 +142,11 @@
 
 - **2026-07-24**: Research phase compiled — [[eBPF Research - Index]] now holds ~44 sources across four thematic areas (verifier/JIT formal verification, hardware-assisted isolation, program supply chain, adversarial robustness of eBPF monitoring), with ten candidate project angles synthesized in [[Potential Research Topics]]. §4 and §8 above have been filled in from this research. **Next step**: choose a direction from [[Potential Research Topics]] (or propose a new one) so §§1–3, 5–7, 9 can be written against it.
 - **2026-07-25**: Added [[eBPF Fundamentals]] — a standalone, deliberately *descriptive* baseline primer on the technology itself (lifecycle, VM/ISA, verifier, maps, helpers/kfuncs, CO-RE, hook taxonomy, privileges, limitations, toolchain, glossary), linked from §8 above. It covers the mechanism; the research notes evaluate it. §4 of this note remains the project's own condensed framing and was left as-is.
+- **2026-08-02**: Added [[Running and Testing eBPF - Practical Approaches]] — the implementation-side companion to the literature review: five approach options with per-option language requirements, a four-layer testing/benchmarking methodology (verifier-log metrics, event-loss reporting, null baselines, median+IQR under VM noise), a target-kernel recommendation, and a feasibility map from each of the ten [[Potential Research Topics]] to what this hardware can actually run.
+  - **Material scoping finding**: macOS does not expose PKU/OSPKE to guests on the development machine (Intel i5-8259U, x86_64, 8 GB), so **Intel MPK isolation is not practically usable locally**, and being x86 rules out ARM PAC/MTE. ⚠️ This is a claim about what the *host OS exposes*, not a verified claim that the silicon lacks protection keys — see that note's §1.1. Topics **#2, #3, and #9** — the hardware-isolation cluster, including the "clearest unaddressed intersection" flagged in [[eBPF Research - Index]] — therefore require rented bare metal, not just a local VM. Topics **#1, #5, #6, #7, #8, #10** are locally feasible.
+  - **Recommended kernel baseline**: **6.18 LTS** (6.18.41 as of this date), since that is where the signed-BPF work behind [[3 - Secure eBPF Program Supply Chain]] (3.1, 3.8) landed and it is now a longterm release.
+  - §5 (Technical Stack) above is still an unfilled placeholder — it should be completed from that note's §3–§4 once a direction is chosen.
 
 ---
 
-**Last Updated**: 2026-07-25
+**Last Updated**: 2026-08-02
