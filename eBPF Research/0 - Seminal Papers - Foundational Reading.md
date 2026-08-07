@@ -174,10 +174,17 @@ Roughly 100 pages; the four ancestry papers are short and old-school-readable.
 8. **0.13** — the current synthesis attempt
 
 ## Actions this note suggests for the rest of the folder
-- [ ] Update **1.3** in [[1 - Formal Verification of the Verifier and JIT]] with the arXiv link from 0.7 — the "direct link not retrieved" gap is closed.
-- [ ] Add **PREVAIL (0.6)** to Section 1 as a first-class source; it is a verification paper, not merely background.
-- [ ] Add **KFlex (0.13)** to Section 2 — it belongs alongside 2.1's proposed responses.
+- [x] Update **1.3** in [[1 - Formal Verification of the Verifier and JIT]] with the arXiv link from 0.7 — done 2026-08-07.
+- [x] Add **PREVAIL (0.6)** to Section 1 as a first-class source — done 2026-08-07, as 1.18.
+- [x] Add **KFlex (0.13)** to Section 2 — done 2026-08-07, as 2.11.
 - [ ] Consider a **fifth safety philosophy — recovery/rollback (0.5)** — in Section 2's framing, currently absent.
+
+## 2026-08-07 addendum — the field moved
+Four sources surfaced in a fresh sweep, all added to [[1 - Formal Verification of the Verifier and JIT]] as 1.13–1.17 (and [[2 - Hardware-Assisted Isolation for eBPF]] as 2.12):
+- **State Embedding (1.13, OSDI'24)** — a *dynamic/self-consistency* oracle for finding verifier bugs, distinct from every static/SMT method in this note. Same author (Hao Sun) as the next item.
+- **BCF / "proof-based verifier enhancement" (1.15, LKML RFC, Nov 2025, still unresolved)** — proof-carrying code for eBPF, proposed as an actual kernel patch series. This is **0.3 (Necula & Lee, PCC) happening in real time** — read 0.3's research-directions note ("a PCC-shaped eBPF would not need Agni") and then read 1.15; the prediction and the patch series are close to a direct match.
+- **The Rutgers path-pruning grant (1.16)** — confirms, from primary sources, that path pruning is the field's own leading group's named *open* soundness gap as of the most recent update found (May 2025 talk; no resolution located as of 2026-08-07).
+- **Heimdall (2.12, arXiv 2605.25411, 2026)** — verified migration of legacy eBPF to Rust; not yet read in full, flagged for triage.
 
 ---
 See also: [[eBPF Research - Index]] · [[Potential Research Topics]] · [[Author Pages to Watch]] · [[eBPF Fundamentals]]

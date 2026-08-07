@@ -64,6 +64,18 @@ Useful chiefly for its related-work map of this section. Verify bibliographic de
 ### 2.10 Li, Gu, Xia, Zang & Chen — *Memory Isolation Mechanism of eBPF Based on PKS Hardware Feature* `[PR]`
 Journal of Software (China), 2022 ⚠️ *cited secondhand only; original not retrieved*
 
+### 2.11 Dwivedi, Iyer & Kashyap — *Fast, Flexible, and Practical Kernel Extensions* (KFlex) `[PR]`
+SOSP 2024 · added per [[0 - Seminal Papers - Foundational Reading]]'s action item (= 0.13, full entry there)
+→ **[open] PDF** [rs3lab.github.io/…/dwivedi:kflex.pdf](https://rs3lab.github.io/assets/papers/2024/dwivedi:kflex.pdf) · ACM DL https://dl.acm.org/doi/10.1145/3694715.3695950
+
+**Summary.** Separates *kernel safety* from *extension correctness* and enforces each with a purpose-fit mechanism instead of asking the verifier to do both — a constructive reply to 2.1 that accepts "pure verification is untenable" without abandoning verification entirely. Several mechanisms are already upstreamed into mainline Linux, making it one of the few sources in this set evaluable against a shipping kernel.
+
+### 2.12 — *Heimdall: Formally Verified Automated Migration of Legacy eBPF Programs to Rust* `[PR-preprint]`
+arXiv 2605.25411, 2026
+→ **[open]** https://arxiv.org/pdf/2605.25411
+
+**Summary.** ⚠️ *Not yet read in full — flagging for triage.* Combines two threads already in this vault: formal verification (Section 1) and language-based safety via Rust (2.8, Rex) — specifically automated, formally-verified translation of existing restricted-C eBPF programs into Rust rather than requiring programs to be authored in a safe language from scratch. Directly relevant if the language-based-safety pole of [[Potential Research Topics#4. Verification vs. hardware isolation vs. language-based safety — a position/evaluation piece]] is pursued: it addresses that comparison's biggest practical objection (existing eBPF is not going to be rewritten by hand).
+
 ## Open questions / angles surfaced by this section
 - 2.1 is the thesis; 2.8 (Rex) is the counter-thesis — a *language-based* alternative to hardware isolation rather than hardware isolation itself. A capstone could position itself explicitly between these two poles.
 - MPK (2.2, 2.7) vs. ARM-specific mechanisms (2.3, 2.5 — PAC/MTE) split along architecture lines. Is there room for a portable/hybrid isolation layer that degrades gracefully depending on available hardware features?
