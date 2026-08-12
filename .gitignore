@@ -2,3 +2,6 @@
 .claudian/
 .DS_Store
 .claude/
+
+/.claude/.headroom_wrap_marker.json
+/.claude/settings.local.json
