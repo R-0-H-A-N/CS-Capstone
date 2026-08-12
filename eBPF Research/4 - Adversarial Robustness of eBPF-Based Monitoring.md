@@ -1,6 +1,8 @@
 ---
 tags: [ebpf, research, security-monitoring, evasion, rootkits]
 parent: "[[eBPF Research - Index]]"
+status: active
+source_count: 13
 ---
 # 4 — Adversarial Robustness of eBPF-Based Monitoring
 

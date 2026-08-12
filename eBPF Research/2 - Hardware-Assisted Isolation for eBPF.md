@@ -1,6 +1,8 @@
 ---
 tags: [ebpf, research, hardware-isolation, mpk, sfi]
 parent: "[[eBPF Research - Index]]"
+status: active
+source_count: 12
 ---
 # 2 — Hardware-Assisted Isolation for eBPF
 

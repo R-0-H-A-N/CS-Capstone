@@ -1,6 +1,7 @@
 ---
 tags: [ebpf, fundamentals, primer, baseline]
 related: "[[eBPF (Extended Berkeley Packet Filter)]]"
+status: done
 ---
 # eBPF — Fundamentals
 

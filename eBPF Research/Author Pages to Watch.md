@@ -1,6 +1,7 @@
 ---
 tags: [ebpf, research, authors]
 parent: "[[eBPF Research - Index]]"
+status: active
 ---
 # Author Pages Worth Bookmarking
 

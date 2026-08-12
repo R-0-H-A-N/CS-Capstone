@@ -1,6 +1,7 @@
 ---
 tags: [ebpf, research, index, moc]
 related: "[[eBPF (Extended Berkeley Packet Filter)]]"
+status: active
 ---
 # eBPF Security & Verification Research — Index
 

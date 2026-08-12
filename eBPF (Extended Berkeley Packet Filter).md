@@ -1,3 +1,7 @@
+---
+tags: [ebpf, capstone, home]
+status: active
+---
 # eBPF (Extended Berkeley Packet Filter) - Capstone Project
 
 ## Project Overview
@@ -21,7 +25,7 @@
 ## 2. Project Objectives
 
 ### Primary Goals
-- [ ] Goal 1: [Be specific and measurable]
+- [x] Goal 1: [Be specific and measurable]
 - [ ] Goal 2: [Be specific and measurable]
 - [ ] Goal 3: [Be specific and measurable]
 

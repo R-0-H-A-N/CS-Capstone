@@ -1,6 +1,8 @@
 ---
 tags: [ebpf, research, supply-chain, signing, lsm]
 parent: "[[eBPF Research - Index]]"
+status: active
+source_count: 9
 ---
 # 3 — Secure eBPF Program Supply Chain
 

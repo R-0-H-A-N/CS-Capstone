@@ -1,6 +1,7 @@
 ---
 tags: [ebpf, methodology, tooling, environment, benchmarking, capstone]
 related: "[[eBPF (Extended Berkeley Packet Filter)]]"
+status: done
 ---
 # Running and Testing eBPF — Practical Approaches
 

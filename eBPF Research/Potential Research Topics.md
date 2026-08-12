@@ -1,6 +1,7 @@
 ---
 tags: [ebpf, research, capstone-ideas]
 parent: "[[eBPF Research - Index]]"
+status: active
 ---
 # Potential Research Topics
 

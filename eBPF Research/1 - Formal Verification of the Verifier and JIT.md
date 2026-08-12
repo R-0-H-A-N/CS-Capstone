@@ -1,6 +1,8 @@
 ---
 tags: [ebpf, research, formal-verification, verifier, jit]
 parent: "[[eBPF Research - Index]]"
+status: active
+source_count: 18
 ---
 # 1 — Formal Verification of the Verifier and JIT
 

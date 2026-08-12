@@ -1,6 +1,8 @@
 ---
 tags: [ebpf, research, seminal, foundations, verification, reading-list]
 parent: "[[eBPF Research - Index]]"
+status: active
+source_count: 13
 ---
 # 0 — Seminal Papers & Foundational Reading
 
