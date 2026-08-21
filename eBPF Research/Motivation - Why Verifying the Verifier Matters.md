@@ -129,6 +129,50 @@ Three openings, ordered by how unclaimed they are as of 2026-08-21:
 New sources introduced here that belong in the numbered list (append at the next free ID, per vault convention — do not renumber):
 Starovoitov LSFMM+BPF 2026 "BPF in the agentic era" `[PRIM]` · Zingerman scalar-evolution loop verification `[PRIM]` · Dwivedi Verus domain-invariants `[PRIM]` · Heimdall `[TECH]` · bpfix / diagnostic gap `[TECH]` · SoK: Memory Safety for eBPF (IEEE S&P 2025) `[PR]` · SafeBPF `[TECH]` · Dynamic Sandboxing (the 56-CVE primary) `[TECH]` · DiffSpec `[TECH]` · BpfChecker (CCS 2024) `[PR]` · FOSDEM 2025 verifier performance comparison `[GREY]`.
 
+## All sources cited in this note
+
+A flat consolidation of every source above, for citation-checking and for the Section 1 triage. Quality tags per the legend in [[eBPF Research - Index]]; ⚠️ flags carried forward.
+
+**Peer-reviewed `[PR]`**
+- CRiSIS 2025 — empirical study of 249 eBPF CVEs (2014–Apr 2025) → https://link.springer.com/chapter/10.1007/978-3-032-20732-6_14
+- *SoK: Challenges and Paths Toward Memory Safety for eBPF*, IEEE S&P 2025 → http://www.nebelwelt.net/files/25Oakland.pdf
+- *BpfChecker*, CCS 2024 → https://yajin.org/papers/CCS2024_BpfChecker.pdf
+
+**Preprints / tech reports `[TECH]`** — ⚠️ *none peer-reviewed*
+- *Unleashing Unprivileged eBPF Potential with Dynamic Sandboxing* — Fig. 1 is the 56-CVE primary → https://arxiv.org/pdf/2308.01983
+- *SafeBPF* — 28 of 41 vulnerabilities memory-safety related → https://arxiv.org/pdf/2409.07508
+- *Heimdall*, arXiv 2605.25411 → https://arxiv.org/abs/2605.25411
+- *bpfix* / diagnostic gap in verifier rejections, arXiv 2607.02748 → https://arxiv.org/abs/2607.02748
+- *DiffSpec*, arXiv 2410.04249 — ⚠️ *search-derived; no direct URL verified. Read the harness before building on it.*
+- NCC Group — *eBPF Verifier Code Review v1.0* (eBPF Foundation–commissioned) → https://www.nccgroup.com/media/4lilthtf/ncc_group_nccgroup_e015561_report_2024-11-11_v10.pdf
+
+**Primary kernel / ecosystem `[PRIM]`**
+- Starovoitov — "BPF in the agentic era", LSFMM+BPF 2026 (LWN, 2026-06-03) → https://lwn.net/Articles/1075067/
+- Zingerman — loop verification with scalar evolution (LWN, 2026-06-09) → https://lwn.net/Articles/1076121/
+- Dwivedi (Meta) — domain-specific invariants via Verus (LWN, 2026-08-10) → https://lwn.net/Articles/1087069/
+- Linux Foundation — threat model + independent verifier audit press release → https://www.linuxfoundation.org/press/threat-model-and-independent-verifier-audit-examine-the-security-of-ebpf
+
+**Code / data artifacts**
+- **Agni** — SMT verification of verifier range analysis; MIT, llvm-14 pinned; mirror doi 10.5281/zenodo.7931901 → https://github.com/bpfverif/agni
+- **ebpf-verifier-bugs** — 67 synthesized PoCs + `bpf_test_tool`; needs a v5.8-era kernel (commit `bcf87687`) → https://github.com/bpfverif/ebpf-verifier-bugs
+- **bpfix** — 12-root-cause taxonomy, 235-rejection dataset, 75-task repair benchmark → https://github.com/eunomia-bpf/bpfix
+- **bpf_conformance** (206 tests) — reached via DiffSpec; ⚠️ *no direct URL recorded yet*
+- LPC 2024 talk, *"Agni: Fast Formal Verification of the Verifier's Range Analysis"* — ⚠️ *cited secondhand; no URL located*
+
+**Grey literature `[GREY]`**
+- Chaignon — *Understanding the Windows eBPF verifier* (PREVAIL) → https://pchaigno.github.io/ebpf/2023/09/06/prevail-understanding-the-windows-ebpf-verifier.html
+- FOSDEM 2025 — performance evaluation of the Linux kernel eBPF verifier → https://archive.fosdem.org/2025/schedule/event/fosdem-2025-6453-performance-evaluation-of-the-linux-kernel-ebpf-verifier/
+- Extreme Networks advisory SA-2025-092 (CVE-2023-2163, branch pruning) → https://community.extremenetworks.com/t5/exos-switch-engine-announcements/sa-2025-092-ebpf-verifier-branch-pruning-linux-kernel-cve-2023/ba-p/120605
+- eBPF Foundation Academic Research Fund (fetched 2026-08-21; ⚠️ faculty-PI only) → https://ebpf.foundation/funding-opportunities/research-fund/
+- eBPF '26 CfP — moved to ACM SOSP '26, Prague 2026-09-29 (fetched 2026-08-21) → https://ebpf.github.io/2026/cfp.html
+- Adoption evidence → https://ebpf.io/case-studies/ · https://ebpf.io/applications/
+
+**CVEs cited** (only CVE-2023-2163 has an advisory URL above)
+CVE-2017-16995 · CVE-2018-18445 · CVE-2019-7308 · CVE-2021-3490 · CVE-2021-4204 · CVE-2022-23222 · CVE-2023-2163 · CVE-2023-39191 · CVE-2026-63864 · CVE-2026-31413
+
+**Already numbered in [[1 - Formal Verification of the Verifier and JIT]]** (referenced by ID, not re-cited here)
+1.1 Agni · 1.3 tnum · 1.5–1.7 Jitterbug/Serval · 1.8 spec-based fuzzing · 1.11 NCC audit · 1.13 State Embedding · 1.15 BCF proof-carrying code · 1.16 Rutgers path-pruning grant · 1.17 CEGIS unsound-operator corpora
+
 ## Related
 - [[1 - Formal Verification of the Verifier and JIT]] — full source list this note draws on
 - [[Potential Research Topics#1. Coverage audit of formal-methods gaps in the verifier/JIT]] — the capstone angle this motivation note supports
