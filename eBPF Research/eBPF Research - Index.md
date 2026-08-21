@@ -12,6 +12,7 @@ Hub note for the research gathered around the [[eBPF (Extended Berkeley Packet F
 - Each numbered topic note below reorganizes the source list for that theme (retrieval order, not citation order), preserving quality tags and every URL variant that was found (open PDF, landing page, mirror, code, talk).
 - [[Potential Research Topics]] translates gaps, tensions, and unaddressed intersections between sections into ten candidate capstone angles.
 - [[Author Pages to Watch]] lists researcher pages worth bookmarking for new work before it's indexed by search engines.
+- [[Motivation - Why Verifying the Verifier Matters]] answers, with external CVE and impact evidence, whether Section 1's problem is real, who it affects at scale, and whether it's already being solved.
 
 ## Quality tag legend
 - `[PR]` — peer-reviewed
